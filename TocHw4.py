@@ -39,7 +39,7 @@ if(len(sys.argv)==2):
 			if pos > 0: #關鍵字非第一個
 				roadget = data[count][u"土地區段位置或建物區門牌"][0:pos+2]
 
-		elif data[count][u"土地區段位置或建物區門牌"].find(u"路")!=-1:
+		elif data[count][u"土地區段位置或建物區門牌"].find(u"路")!=-1 and data[count][u"土地區段位置或建物區門牌"].find(u"路")+2!=data[count][u"土地區段位置或建物區門牌"].find(u"區"):
 			pos = data[count][u"土地區段位置或建物區門牌"].find(u"路")
 			if pos > 0: 
 				roadget = data[count][u"土地區段位置或建物區門牌"][0:pos+1]
@@ -91,11 +91,12 @@ if(len(sys.argv)==2):
 
 	
 	for a in range(len(ID)):
-		print road[ID[a]],
-		print ", 最高成交價: ",
-		print max_money[ID[a]],
-		print ", 最低成交價: ",
-		print min_money[ID[a]]
+		print road[ID[a]]+", 最高成交價: "+str(max_money[ID[a]])+", 最低成交價: "+str(min_money[ID[a]])
+		#print road[ID[a]],
+		#print ", 最高成交價: ",
+		#print max_money[ID[a]],
+		#print ", 最低成交價: ",
+		#print min_money[ID[a]]
 
 else:
 	print "The number of input argument is wrong"
